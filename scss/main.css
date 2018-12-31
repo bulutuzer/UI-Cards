@@ -1,0 +1,231 @@
+/**
+ * modified version of eric meyer's reset 2.0
+ * http://meyerweb.com/eric/tools/css/reset/
+ */
+/**
+ * basic reset
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, main,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/**
+ * HTML5 display-role reset for older browsers
+ */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section,
+main, summary {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* base background colors */
+.flat-light-grey {
+  background-color: #E0E0E0; }
+
+.flat-orange {
+  background-color: #F9AB16; }
+
+.flat-red {
+  background-color: #D0021B; }
+
+.flat-cream {
+  background-color: #FADFC0; }
+
+.flat-light-green {
+  background-color: #37D699; }
+
+/*font list*/
+@font-face {
+  font-family: "SFText-Light";
+  font-weight: 200;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-light-webfont.eot?") format("eot"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-light-webfont.woff2") format("woff2"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-light-webfont.woff") format("woff"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-light-webfont.ttf") format("truetype"), url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-light-webfont.svg#str-replace("SFText-Light", " ", "_")') format("svg"); }
+@font-face {
+  font-family: "SFText-Regular";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-regular-webfont.eot?") format("eot"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-regular-webfont.woff2") format("woff2"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-regular-webfont.woff") format("woff"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-regular-webfont.ttf") format("truetype"), url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-regular-webfont.svg#str-replace("SFText-Regular", " ", "_")') format("svg"); }
+@font-face {
+  font-family: "SFText-Semibold";
+  font-weight: 600;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-semibold-webfont.eot?") format("eot"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-semibold-webfont.woff2") format("woff2"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-semibold-webfont.woff") format("woff"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-semibold-webfont.ttf") format("truetype"), url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-semibold-webfont.svg#str-replace("SFText-Semibold", " ", "_")') format("svg"); }
+@font-face {
+  font-family: "SFText-Bold";
+  font-weight: 700;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-bold-webfont.eot?") format("eot"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-bold-webfont.woff2") format("woff2"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-bold-webfont.woff") format("woff"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-bold-webfont.ttf") format("truetype"), url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-bold-webfont.svg#str-replace("SFText-Bold", " ", "_")') format("svg"); }
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #FFFFFF;
+  font-family: "SFText-Regular"; }
+
+section.wrapper {
+  width: 1095px;
+  height: 770px;
+  margin: 100px auto 0px;
+  padding: 14.5px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.12); }
+  section.wrapper div.row {
+    width: 100%;
+    height: 100%; }
+    section.wrapper div.row div.cards {
+      background-color: #FFFFFF;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.12);
+      border-radius: 10px;
+      padding: 15px; }
+      section.wrapper div.row div.cards div.flex-description {
+        display: flex;
+        flex-direction: column; }
+        section.wrapper div.row div.cards div.flex-description div.info-col {
+          margin-top: 8px;
+          height: 100%; }
+      section.wrapper div.row div.cards div.song div.info-col h1 {
+        height: 50px; }
+      section.wrapper div.row div.cards div.album-cover div.image-col {
+        position: relative; }
+        section.wrapper div.row div.cards div.album-cover div.image-col div.info-col {
+          border-radius: 4px;
+          background-color: rgba(0, 0, 0, 0.5);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          text-align: center; }
+          section.wrapper div.row div.cards div.album-cover div.image-col div.info-col h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF; }
+      section.wrapper div.row div.cards div.description {
+        height: 100%; }
+        section.wrapper div.row div.cards div.description div.info-col {
+          display: flex;
+          flex-direction: column; }
+          section.wrapper div.row div.cards div.description div.info-col h1 {
+            display: block;
+            font-family: "SFText-Semibold";
+            font-size: 17px;
+            color: #000000;
+            flex-grow: 1;
+            line-height: 22px; }
+          section.wrapper div.row div.cards div.description div.info-col span.song-user-name {
+            font-family: "SFText-Light";
+            font-size: 17px;
+            color: #D0021B;
+            line-height: 22px; }
+          section.wrapper div.row div.cards div.description div.info-col span.text-bottom {
+            font-family: "SFText-Regular";
+            font-size: 14px;
+            color: #BEBEBE;
+            line-height: 19px; }
+        section.wrapper div.row div.cards div.description div.image-col {
+          line-height: 0; }
+          section.wrapper div.row div.cards div.description div.image-col img {
+            border-radius: 4px; }
+        section.wrapper div.row div.cards div.description div.hex-col {
+          display: table;
+          text-align: center;
+          line-height: normal;
+          height: 45px;
+          border-radius: 4px; }
+          section.wrapper div.row div.cards div.description div.hex-col span.hex-code {
+            font-family: "SFText-Bold";
+            font-size: 15px;
+            color: #FFFFFF;
+            display: table-cell;
+            vertical-align: middle; }
+
+/* basic styles */
+.text-center {
+  text-align: center; }
+
+.mg-top-5 {
+  margin-top: 5px; }
+
+.mg-top-15 {
+  margin-top: 15px; }
+
+.mg-right-15 {
+  margin-top: 15px; }
+
+/* flex basic grid structure */
+.flex-grid {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap; }
+
+.flex-grid-cell {
+  flex: 1; }
+
+.flex-cols-2 .flex-grid-cell,
+.flex-cols-3 .flex-grid-cell {
+  flex: 1;
+  margin-right: 15px; }
+  .flex-cols-2 .flex-grid-cell:last-child,
+  .flex-cols-3 .flex-grid-cell:last-child {
+    margin-right: 0; }
+
+.flex-6of1 .flex-grid-cell:last-of-type {
+  flex: 0 0 31.715%; }
+
+.flex-1of6 .flex-grid-cell:first-of-type {
+  flex: 0 0 20%; }
+
+.flex-grid-right {
+  justify-content: flex-end; }
+
+.flex-grid-center {
+  justify-content: center; }
+
+.flex-grid-top {
+  align-items: flex-start; }
+
+.flex-grid-bottom {
+  align-items: flex-end; }
+
+.flex-grid-center {
+  align-items: center; }
+
+.flex-grid-cell-top {
+  align-self: flex-start; }
+
+.flex-grid-cell-bottom {
+  align-self: flex-end; }
+
+.flex-grid-cell-center {
+  align-self: center; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,253 @@
+@import 'imports/_reset.scss';
+
+//base colors
+$white:#FFFFFF;
+$black:#000000;
+$flat-grey:#BEBEBE;
+$flat-light-grey:#E0E0E0;
+$flat-orange:#F9AB16;
+$flat-red:#D0021B;
+$flat-cream:#FADFC0;
+$flat-light-green:#37D699;
+$shadow-black:rgba(0, 0, 0, 0.12);
+
+/* base background colors */
+.flat-light-grey { background-color: $flat-light-grey; }
+.flat-orange { background-color: $flat-orange; }
+.flat-red { background-color: $flat-red; }
+.flat-cream { background-color: $flat-cream; }
+.flat-light-green { background-color: $flat-light-green; }
+
+//cards - fixed sizes
+.two-column-size { width: 345px }
+.one-column-size { width: 165px }
+
+/* basic class */
+.none-height { flex-grow: 0 !important; height: inherit !important; line-height: 25px !important; }
+.none-shadow { box-shadow: inherit !important; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mg-top-5 { margin-top: 5px; }
+.mg-top-15 { margin-top: 15px; }
+.mg-bottom-15 { margin-bottom: 15px; }
+.mg-right-15 { margin-right: 15px; }
+
+//font-face mixin
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+/*font list*/
+@include font-face("SFText-Light", "https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-light-webfont", 200, null, eot woff2 woff ttf svg);
+@include font-face("SFText-Regular", "https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-regular-webfont", 400, null, eot woff2 woff ttf svg);
+@include font-face("SFText-Semibold", "https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-semibold-webfont", 600, null, eot woff2 woff ttf svg);
+@include font-face("SFText-Bold", "https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscotext-bold-webfont", 700, null, eot woff2 woff ttf svg);
+
+*{ box-sizing: border-box; }
+body { background-color: #E4E4E4; font-family: "SFText-Regular"; }
+
+.wrapper {
+	background-color: $white;
+	width: 1095px; height: 770px;
+	position: relative;
+	margin: 15px auto 0px;
+	padding: 14.5px;
+	box-shadow: 0px 0px 30px $shadow-black;
+
+	.row { width: 100%; height: 100%; }
+}
+
+/* card blocks */
+div.cards {
+	background-color: $white; box-shadow: 0px 2px 15px $shadow-black; border-radius: 10px; padding: 15px;
+
+	/* single column style for description content */
+	div.flex-description {
+		display: flex; flex-direction: column;
+		div.info-col { margin-top: 8px; height: 100%; }
+	}
+
+	/* h1 style for song type columns */
+	div.song {
+		div.info-col {
+			h1 { height: 50px; }
+		}
+	}
+
+	/* h1 and span style for iconic song type columns */
+	div.iconic-song {
+		div.info-col {
+			h1 { flex-grow: initial !important; }
+			span.text-bottom { flex-grow: 1; }
+		}
+	}
+
+	/* image and info styles for album cover type columns */
+	div.album-cover {
+		div.image-col {
+			position: relative;
+			div.info-col {
+				border-radius: 4px;
+				background-color: rgba(0, 0, 0, 0.5);
+				width: 100%; height: 100%;
+				position: absolute;
+				top: 0; left: 0;
+				text-align: center;
+				h1 { display: flex; align-items: center; justify-content: center; color: $white; }
+			}
+		}
+	}
+
+	/* description styles for all card blocks */
+	div.description {
+		height: 100%;
+
+		/* card text content */
+		div.info-col {
+			display: flex; flex-direction: column;
+			h1 { display: block; font-family: "SFText-Semibold"; font-size: 17px; color: $black; flex-grow: 1; line-height: 22px; }
+			span.red-text, a.red-text {
+				font-family: "SFText-Light"; font-size: 17px; color: $flat-red; line-height: 22px; text-decoration: none;
+				span.check {
+					float: right;
+				}
+			}
+			span.text-bottom { font-family: "SFText-Regular"; font-size: 14px; color: $flat-grey; line-height: 19px; }
+		}
+
+		/* card image content */
+		div.image-col {
+			line-height: 0;
+			img { width: 100%; border-radius: 4px; }
+		}
+		
+		/* right columns of color cards with no music player */
+		div.small-hex-col {
+			display: table; text-align: center; line-height: normal; height: 45px; border-radius: 4px;
+			span.hex-code { font-family: "SFText-Bold"; font-size: 15px; color: $white; display: table-cell; vertical-align: middle; }
+		}
+		
+		/* right columns of color cards with music player */
+		div.mid-hex-col {
+			display: table; text-align: center; line-height: normal; height: 130px; border-radius: 4px;
+			span.icons { font-size: 30px; line-height: 35px; display: table-cell; vertical-align: middle; }
+		}
+	}
+	
+	/* non-active music player styles */
+	div.player {
+		display: block; margin-top: 16px; height: 45px;
+		a {
+			display: table-cell;
+			vertical-align: middle; 
+			width: 45px; height: 45px;
+			border-radius: 22px;
+		}
+		span {
+			display: table-cell;
+			vertical-align: middle; 
+			padding-left: 15px;
+			font-family: "SFText-Regular";
+			font-size: 14px;
+			color: $flat-grey;
+		}
+		div.waveform { display: table-cell; 
+			vertical-align: middle; 
+			padding-left: 15px; }
+	}
+}
+
+/* excluded card 'temporary style' */
+.excluded {
+	width: 705px;
+	position: absolute;
+	right: 15px; bottom: 15px;
+}
+
+footer {
+	width: 1095px; margin: 15px auto 0px;
+	ul.by {
+		li {
+			display: table;
+			div {
+				display: table-cell;
+				vertical-align: middle;
+				a { text-decoration: none; }
+				&:first-child {
+					padding-right: 15px;
+					a {
+						display: block; height: 45px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* flex basic grid structure */
+.flex-grid {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+}
+
+.flex-grid-cell { flex: 1; }
+
+.flex-cols-3 {
+	.flex-grid-cell {
+		flex: 1;
+		margin-right: 15px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.flex-6of1 {
+	.flex-grid-cell:last-of-type {
+		flex: 0 0 31.75%;
+	}
+}
+
+.flex-4of1 {
+	.flex-grid-cell:last-of-type {
+		flex: 0 0 41.23%;
+	}
+}
+
+//justify per row
+.flex-grid-right { justify-content: flex-end; }
+.flex-grid-center { justify-content: center; }
+
+//alignment per row
+.flex-grid-top { align-items: flex-start; }
+.flex-grid-bottom { align-items: flex-end; }
+.flex-grid-center { align-items: center; }
+
+//aligment per cell
+.flex-grid-cell-top { align-self: flex-start; }
+.flex-grid-cell-bottom { align-self: flex-end; }
+.flex-grid-cell-center { align-self: center; }

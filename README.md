@@ -1,6 +1,6 @@
 # UI-Cards
 
-**Demo:**  [UI Cards](https://codepen.io/bulutuzer/pen/BvmWyK)
+**Demo:**  [UI Cards](https://codepen.io/bulutuzer/pen/REjpRN)
 
 **TR**
 
